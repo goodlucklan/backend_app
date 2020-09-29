@@ -22,7 +22,9 @@ const db = knex({
         database: 'smart-brain'
     }
 });
-
+app.get('/', (req, res) => {
+    res.send('Hola mundo');
+})
 app.post('/singin', signin.handleSignIn(db, bcryptjs));
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcryptjs) });
 app.get('/profile/:id', (req, res) => { profile.handleprofile(req, res, db) });
